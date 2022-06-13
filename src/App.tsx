@@ -1,9 +1,16 @@
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
+
+import Home from "./pages/Home";
+import ClientLayout from "./layouts/client.layout";
 
 function App() {
   return (
     <div className="App">
-      <p>lorem</p>
+      <Routes>
+        <Route path="" element={<ClientLayout />}>
+          <Route path="home" element={<Home />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

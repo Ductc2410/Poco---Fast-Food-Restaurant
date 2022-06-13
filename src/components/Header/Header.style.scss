@@ -1,0 +1,154 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+
+  &_logo {
+    width: 125px;
+    column-gap: 50px;
+  }
+
+  &_toggle i {
+    color: black;
+    font-size: 30px;
+  }
+
+  &_phone i {
+    color: black;
+    font-size: 35px;
+    transform: rotateY(180deg);
+  }
+
+  @media screen and (max-width: 1023.98px) {
+    &_list {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      width: 100%;
+      height: 100%;
+      transform: translateX(-100%);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      row-gap: 30px;
+
+      background-color: #000000ab;
+    }
+
+    &_link {
+      font-size: 20px;
+      font-weight: $font-semibold;
+      color: white;
+      text-transform: uppercase;
+    }
+
+    &_action {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: $z-fixed;
+      background-color: white;
+      border-top: 1px solid #e5e5e5;
+    }
+  }
+}
+
+.action {
+  @media screen and (max-width: 1023.98px) {
+    &_item {
+      flex-basis: 25%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 0 5px 0;
+
+      &:not(&:last-child) {
+        border-right: 1px solid #e5e5e5;
+      }
+
+      i {
+        color: black;
+        font-size: 25px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  &_list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &_link {
+    font-size: $smaller-font-size;
+    font-weight: $font-semibold;
+    color: black;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav {
+    padding: 30px 0;
+
+    &_toggle,
+    &_phone {
+      display: none;
+    }
+
+    &_left {
+      display: flex;
+      align-items: center;
+      column-gap: 80px;
+    }
+
+    &_list {
+      display: flex;
+      column-gap: 32px;
+    }
+
+    &_link {
+      font-weight: 700;
+      font-size: 15px;
+      color: black;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  .action {
+    &_list {
+      column-gap: 10px;
+    }
+
+    &_item {
+      width: 48px;
+      height: 48px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 20px;
+      line-height: 1;
+      color: black;
+      border: 1px solid #e5e5e5;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $primary-color;
+      }
+    }
+
+    &_link {
+      display: none;
+    }
+  }
+}

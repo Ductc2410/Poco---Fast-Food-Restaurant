@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+$header-height: 3.5rem;
+
+/*========== Colors ==========*/
+$primary-color: #ffc222;
+
+$title-color: #1e1d23;
+$text-color: gray;
+$body-color: #fff;
+
+/*========== Font and typography ==========*/
+$body-font: "Poppins", sans-serif;
+$biggest-font-size: 4.75rem;
+$h1-font-size: 3rem;
+$h2-font-size: 2.625rem;
+$h3-font-size: 2.5rem;
+$normal-font-size: 0.875rem;
+$small-font-size: 0.813rem;
+$smaller-font-size: 0.75rem;
+
+/*========== Font weight ==========*/
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
+
+/*========== z index ==========*/
+$z-tooltip: 10;
+$z-fixed: 100;

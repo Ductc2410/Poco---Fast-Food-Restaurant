@@ -1,0 +1,54 @@
+.menu {
+  position: relative;
+
+  &_container {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+  }
+
+  &_btn {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    a {
+      color: black;
+    }
+  }
+
+  &_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      height: 86px;
+    }
+
+    a {
+      color: black;
+      font-size: $small-font-size;
+      font-weight: $font-semibold;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menu {
+    &_container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .menu {
+    &_container {
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      column-gap: 30px;
+    }
+  }
+}

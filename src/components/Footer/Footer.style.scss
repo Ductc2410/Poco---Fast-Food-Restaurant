@@ -1,0 +1,71 @@
+.footer {
+  background-color: black;
+
+  &_logo {
+    width: 125px;
+    margin: 0 auto;
+  }
+
+  &_title {
+    color: white;
+    margin-bottom: 25px;
+  }
+
+  &_container {
+    font-size: 15px;
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+    padding-top: 55px;
+    padding-bottom: 55px;
+
+    & > div {
+      text-align: center;
+      color: #b0b0b0;
+    }
+
+    .booking {
+      .phone {
+        color: $primary-color;
+        margin-top: 15px;
+      }
+    }
+
+    .newsletter_form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      font-size: 18px;
+      flex-wrap: wrap;
+      row-gap: 20px;
+
+      input {
+        background: none;
+        color: white;
+        padding: 0 10px;
+      }
+    }
+  }
+
+  &_btn {
+    padding: 15px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    &_container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .footer {
+    &_container {
+      grid-template-columns: repeat(4, 1fr);
+      padding-bottom: 0;
+      column-gap: 30px;
+    }
+  }
+}

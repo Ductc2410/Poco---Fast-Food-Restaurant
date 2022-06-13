@@ -1,0 +1,39 @@
+.feedback {
+  background-color: #f7f2e2;
+
+  &_item {
+    padding: 30px;
+    border-radius: 10px;
+    background-color: white;
+  }
+
+  &_user {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    margin-bottom: 25px;
+
+    .user_image {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .user_infor {
+      .name {
+        font-weight: $font-bold;
+        color: black;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &_content {
+    font-size: 15px;
+
+    & .star i {
+      color: $primary-color;
+    }
+  }
+}

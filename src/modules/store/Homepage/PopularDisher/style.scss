@@ -1,0 +1,43 @@
+.popular {
+  &_filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 10px;
+    row-gap: 10px;
+    margin-bottom: 20px;
+
+    & li.active {
+      background-color: $primary-color;
+    }
+
+    & li:hover {
+      cursor: pointer;
+      background-color: #ffc22282;
+    }
+  }
+
+  &_products {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .popular {
+    &_products {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 30px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .popular {
+    &_products {
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+    }
+  }
+}
