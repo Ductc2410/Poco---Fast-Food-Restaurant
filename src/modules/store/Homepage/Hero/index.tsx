@@ -9,7 +9,7 @@ export default function Hero() {
           <h1 className="hero_text-main">
             UNLIMITED <br />
             MEDIUM
-            <span style={{ color: "#ffcc00" }}>PIZZAS</span>
+            <span style={{ color: "#ffcc00" }}> PIZZAS</span>
           </h1>
           <h2 className="hero_text-sub">Medium 2-topping* pizza</h2>
           <p className="hero_text-normal">

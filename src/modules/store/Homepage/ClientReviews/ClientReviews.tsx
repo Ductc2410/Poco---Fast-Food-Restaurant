@@ -1,6 +1,4 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import "swiper/css";
 import "./style.scss";
 
 const ClientReviews = () => (
@@ -11,7 +9,7 @@ const ClientReviews = () => (
       <div className="feedback_content">
         <Swiper
           spaceBetween={30}
-          slidesPerView={3}
+          slidesPerView={1}
           breakpoints={{
             768: {
               slidesPerView: 2,

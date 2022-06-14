@@ -1,0 +1,105 @@
+.cart {
+  &_table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+
+    &-title {
+      padding: 15px;
+    }
+
+    &-header {
+      background-color: $primary-color;
+
+      & tr th {
+        padding: 15px;
+        color: white;
+      }
+
+      & tr {
+        .name {
+          width: 30%;
+          text-align: left;
+        }
+
+        .total {
+          text-align: right;
+          padding-right: 70px;
+        }
+      }
+    }
+
+    &-body {
+      & tr td {
+        padding: 15px;
+        height: 140px;
+      }
+
+      & tr {
+        border-bottom: 1px solid#e7e7e7;
+
+        .image {
+          width: 11%;
+        }
+
+        .quantity {
+          display: flex;
+          column-gap: 30px;
+          justify-content: center;
+          align-items: center;
+
+          .up,
+          .down {
+            cursor: pointer;
+            display: flex;
+            width: min-content;
+            padding: 5px;
+            background-color: #e84242;
+            color: white;
+            border-radius: 50%;
+          }
+        }
+
+        .total {
+          text-align: right;
+          padding-right: 70px;
+        }
+
+        .price {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &_total {
+    margin-top: 30px;
+    &-title {
+      padding-bottom: 25px;
+      border-bottom: 2px solid #e7e7e7;
+    }
+
+    &-item {
+      color: black;
+      display: flex;
+      justify-content: space-between;
+      padding: 25px 70px 25px 30px;
+      border-bottom: 1px solid #e7e7e7;
+
+      &:last-child {
+        border-bottom: 2px solid #e7e7e7;
+      }
+    }
+  }
+
+  &_btn {
+    margin-top: 50px;
+    text-align: center;
+
+    button {
+      color: white;
+      border-radius: 40px;
+    }
+  }
+}

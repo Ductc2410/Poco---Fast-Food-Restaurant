@@ -1,0 +1,34 @@
+.login {
+  &_form {
+    padding: 70px 30px 50px;
+    max-width: 700px;
+    margin: 80px auto;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+  }
+
+  &_navigate {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #e5e5e5;
+
+    a {
+      color: #686464;
+    }
+  }
+}
+
+.form {
+  &_group {
+    padding: 13px 20px;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 5px;
+
+    input {
+      font-size: 16px;
+    }
+  }
+}

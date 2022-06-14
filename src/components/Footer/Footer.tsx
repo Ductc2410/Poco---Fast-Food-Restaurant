@@ -1,10 +1,9 @@
 import Logo from "../../assets/logo.svg";
 import "./Footer.style.scss";
 
-const Footer = () => {
-  const a = 1;
-  return (
-    <footer className="footer section">
+const Footer = () => (
+  <footer className="footer">
+    <div className="footer_top section">
       <div className="footer_logo">
         <img src={Logo} alt="" />
       </div>
@@ -48,8 +47,22 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
-};
+    </div>
+
+    <div className="footer_bottom">
+      <div className="container">
+        <p>
+          Copyright © 2020
+          <span>pocofood</span>. All Rights Reserved.
+        </p>
+
+        <img
+          src="https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/footer_img1.png"
+          alt=""
+        />
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;
