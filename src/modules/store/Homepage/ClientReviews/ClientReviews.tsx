@@ -1,3 +1,4 @@
+import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./style.scss";
 
@@ -8,8 +9,14 @@ const ClientReviews = () => (
 
       <div className="feedback_content">
         <Swiper
+          loop={true}
+          modules={[Autoplay]}
           spaceBetween={30}
           slidesPerView={1}
+          autoplay={{
+            delay: 1000,
+            disableOnInteraction: false
+          }}
           breakpoints={{
             768: {
               slidesPerView: 2,

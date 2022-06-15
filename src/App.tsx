@@ -7,6 +7,7 @@ import Register from "./pages/auth/Register/Register";
 import Detail from "./pages/store/Detail";
 import CartPage from "./pages/store/Cart";
 import CheckoutPage from "./pages/store/checkout";
+import AdminLayout from "./layouts/admin.layout";
 
 function App() {
   return (
@@ -21,6 +22,11 @@ function App() {
 
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+        </Route>
+
+        <Route path="admin" element={<AdminLayout />}>
+          <Route index element={<Navigate to="home" />} />
+          <Route path="home" element={<Home />} />
         </Route>
       </Routes>
     </div>

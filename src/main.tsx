@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 import "swiper/css";
+import "antd/dist/antd.css";
 import "./styles/style.scss";
 import App from "./App";
 
