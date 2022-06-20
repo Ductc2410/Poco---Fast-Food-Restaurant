@@ -1,9 +1,25 @@
 {
-  "products": [],
+  "products": [
+    {
+      "status": "visiable",
+      "category_id": 1,
+      "quantity": 20,
+      "description_short": "Dr. Praeger’s Black Bean Burger, Focaccia bun, Balsamic Vinaigrette, Pesto, Tomato, Swiss Cheese",
+      "description": "<p>Although the legendary Double Burger really needs no introduction, please allow us… Tucked in between three soft buns are two all-beef patties, cheddar cheese, ketchup, onion, pickles and iceberg lettuce. Hesburger’s own paprika and cucumber mayonnaise add the crowning touch. Oh baby!</p><p><br></p><p><strong>Ingredients:</strong>&nbsp;Dr. Praeger’s Black Bean Burger, Focaccia bun, Balsamic Vinaigrette, Pesto, Tomato, Swiss Cheese</p>",
+      "overview": "A mighty meaty double helping of all the reasons you love our burger.",
+      "price_sale": 0,
+      "price": 12.61,
+      "image": "https://res.cloudinary.com/dzoav55s4/image/upload/v1655710062/Shop/m9xnxgtsphlufstu59tk.png",
+      "name": "BBQ chicken breast",
+      "sku": "PRD001",
+      "id": 1
+    }
+  ],
   "users": [
     {
       "email": "admin@gmail.com",
       "password": "$2a$10$iFeV.I/ms80rfnxq8djINeEDpD//MnaSDoGjnPzBWRqrYG0zx.cwC",
+      "username": "admin",
       "id": 1
     },
     {
