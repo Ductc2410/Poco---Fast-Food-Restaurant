@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Table, notification } from "antd";
+import { Table, notification, Button } from "antd";
 import Checkbox from "antd/lib/checkbox/Checkbox";
 import { Link } from "react-router-dom";
-import { AppDispatch, RootState } from "../../../store/store";
+import { AppDispatch, RootState } from "../../../redux/store";
 
-import { getProducts } from "../../../store/slice/product.slide";
+import { getProducts } from "../../../redux/slice/product.slide";
 import IProduct from "../../../types/Product";
 
 const ProductList = () => {
@@ -43,6 +43,15 @@ const ProductList = () => {
       key: "available",
       render: (_: any, record: IProduct) => (
         <Checkbox defaultChecked={record.status === "visiable"} />
+      )
+    },
+    {
+      title: "Action",
+      key: "action",
+      render: (_: any, record: IProduct) => (
+        <Button type="primary" danger>
+          Delete
+        </Button>
       )
     }
   ];

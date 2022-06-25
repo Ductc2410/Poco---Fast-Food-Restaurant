@@ -10,6 +10,6 @@ export const productSchema = yup.object({
   description: yup.string().required("Description canot be empty"),
   description_short: yup.string().required("Description canot be empty"),
   quantity: yup.number().min(1, "Quantity too low").required("Quantity is require"),
-  category_id: yup.number().required("Require Field"),
+  categoryId: yup.number().required("Require Field"),
   status: yup.string()
 });

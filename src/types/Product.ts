@@ -10,5 +10,5 @@ export default interface IProduct {
   description_short: string;
   quantity: number;
   status: string;
-  category_id: number;
+  categoryId: number;
 }

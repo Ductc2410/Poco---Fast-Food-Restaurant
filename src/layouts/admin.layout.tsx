@@ -14,7 +14,7 @@ const items = [
     ]
   },
   {
-    label: <Link to="/admin/category">Create</Link>,
+    label: <Link to="/admin/user">Create</Link>,
     key: "category"
   }
 ];

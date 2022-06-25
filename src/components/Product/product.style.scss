@@ -6,6 +6,7 @@
     border-radius: 30px;
     padding: 10px;
     background: #fff;
+    height: min-content;
   }
 
   &_image {
@@ -54,12 +55,16 @@
 
   &_infor {
     padding: 10px;
-    margin-bottom: 6px;
   }
 
   &_desc {
     font-size: $small-font-size;
     margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 
   &_footer {
@@ -67,6 +72,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: 17px;
+    margin-bottom: 0;
 
     .product_price {
       &-normal.sale {

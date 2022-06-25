@@ -8,6 +8,6 @@ export interface IProductForm {
   description: string;
   description_short: string;
   quantity: number;
-  category_id: number;
+  categoryId: number;
   status: string;
 }

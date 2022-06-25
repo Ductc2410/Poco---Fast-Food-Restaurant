@@ -40,7 +40,7 @@ const initialState: InitialStateType = {
 };
 
 const authSlice = createSlice({
-  name: "products",
+  name: "auth",
   initialState,
   reducers: {},
   extraReducers: (builder) => {

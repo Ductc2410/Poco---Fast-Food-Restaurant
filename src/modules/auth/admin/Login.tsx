@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import { Button, Form, Input, Typography } from "antd";
 import { useEffect } from "react";
-import { signin } from "../../../store/slice/auth.slide";
+import { signin } from "../../../redux/slice/auth.slide";
 import IUserLogin from "../../../types/UserLogin";
-import { AppDispatch, RootState } from "../../../store/store";
+import { AppDispatch, RootState } from "../../../redux/store";
 
 const { Text } = Typography;
 

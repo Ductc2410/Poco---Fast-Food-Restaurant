@@ -18,14 +18,14 @@ const Header = () => (
 
           <ul className="nav_list">
             <li className="nav_item">
-              <a href="home" className="nav_link">
+              <Link to="/home" className="nav_link">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav_item">
-              <a href="shop" className="nav_link">
+              <Link to="/shop" className="nav_link">
                 Menu
-              </a>
+              </Link>
             </li>
             <li className="nav_item">
               <a href="" className="nav_link">
@@ -52,10 +52,12 @@ const Header = () => (
         <div className="nav_action">
           <ul className="action_list">
             <li className="action_item">
-              <i className="bx bxs-store" />
-              <a href="" className="action_link">
+              <Link to="home">
+                <i className="bx bxs-store" />
+              </Link>
+              <Link to="home" className="action_link">
                 Shop
-              </a>
+              </Link>
             </li>
             <li className="action_item">
               <Link to="login">
@@ -78,10 +80,12 @@ const Header = () => (
               </a>
             </li>
             <li className="action_item">
-              <i className="bx bxs-cart" />
-              <a href="" className="action_link">
+              <Link to="cart">
+                <i className="bx bxs-cart" />
+              </Link>
+              <Link to="/cart" className="action_link">
                 Cart
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

@@ -1,0 +1,142 @@
+.shop {
+  &_breadcrumb {
+    background-image: url("../images/breadcrumb.jpg");
+  }
+
+  &_container {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 30px;
+  }
+
+  &_products {
+    grid-template-columns: 1fr;
+    row-gap: 36px;
+  }
+
+  &_sidebar {
+    display: none;
+  }
+}
+
+.sidebar {
+  &_item {
+    margin-bottom: 40px;
+  }
+
+  &_title {
+    color: black;
+    font-size: 20px;
+    font-weight: $font-semibold;
+    padding: 0 20px 10px 20px;
+  }
+
+  &_category {
+    padding: 8px;
+    border: 1px solid #e5e5e5;
+    border-radius: 20px;
+  }
+
+  &_form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fbf7e8;
+    border-radius: 8px;
+    padding: 20px;
+
+    input {
+      background: none;
+    }
+
+    i {
+      color: black;
+      font-size: 20px;
+      font-weight: $font-semibold;
+    }
+  }
+}
+
+.category {
+  &_list {
+    background-color: #fbf7e8;
+    border-radius: 20px;
+  }
+
+  &_item {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    padding: 10px 20px;
+
+    i {
+      font-size: 24px;
+    }
+
+    &:not(&:last-child) {
+      border-bottom: 1px solid #e5e5e5;
+    }
+  }
+}
+
+.history {
+  &_item {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    padding: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 20px;
+
+    .image {
+      width: 100px;
+      height: 100px;
+      background-color: #f7f4ef;
+      border-radius: 24px;
+    }
+
+    .infor {
+      &-start i {
+        color: $primary-color;
+      }
+
+      &-name {
+        font-size: 1rem;
+        font-weight: $font-semibold;
+        color: black;
+        margin: 5px 0;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .shop {
+    &_products {
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .shop {
+    &_products {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .shop {
+    &_container {
+      grid-template-columns: 3fr 1fr;
+    }
+
+    &_sidebar {
+      display: block;
+    }
+  }
+}

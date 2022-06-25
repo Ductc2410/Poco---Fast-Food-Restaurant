@@ -1,11 +1,11 @@
 {
   "products": [
     {
-      "status": "visiable",
-      "category_id": 1,
+      "status": "hidden",
+      "categoryId": 4,
       "quantity": 20,
       "description_short": "Dr. Praeger’s Black Bean Burger, Focaccia bun, Balsamic Vinaigrette, Pesto, Tomato, Swiss Cheese",
-      "description": "<p>Although the legendary Double Burger really needs no introduction, please allow us… Tucked in between three soft buns are two all-beef patties, cheddar cheese, ketchup, onion, pickles and iceberg lettuce. Hesburger’s own paprika and cucumber mayonnaise add the crowning touch. Oh baby!</p><p><br></p><p><strong>Ingredients:</strong>&nbsp;Dr. Praeger’s Black Bean Burger, Focaccia bun, Balsamic Vinaigrette, Pesto, Tomato, Swiss Cheese</p>",
+      "description": "<p>Although the legendary Double Burger really needs no introduction, please allow us… Tucked in between three soft buns are two all-beef patties, cheddar cheese, ketchup, onion, pickles and iceberg lettuce. Hesburger’s own paprika and cucumber mayonnaise add the crowning touch. Oh baby!</p><p></p><p><strong>Ingredients:</strong>&nbsp;Dr. Praeger’s Black Bean Burger, Focaccia bun, Balsamic Vinaigrette, Pesto, Tomato, Swiss Cheese</p>",
       "overview": "A mighty meaty double helping of all the reasons you love our burger.",
       "price_sale": 0,
       "price": 12.61,
@@ -13,6 +13,113 @@
       "name": "BBQ chicken breast",
       "sku": "PRD001",
       "id": 1
+    },
+    {
+      "status": "visiable",
+      "categoryId": 2,
+      "quantity": 20,
+      "description_short": "Dr. Praeger’s Black Bean Burger, Focaccia bun, Balsamic Vinaigrette, Pesto, Tomato, Swiss Cheese",
+      "description": "<p>Although the legendary Double Burger really needs no introduction, please allow us… Tucked in between three soft buns are two all-beef patties, cheddar cheese, ketchup, onion, pickles and iceberg lettuce. Hesburger’s own paprika and cucumber mayonnaise add the crowning touch. Oh baby!</p><p></p><p><strong>Ingredients:</strong>&nbsp;Dr. Praeger’s Black Bean Burger, Focaccia bun, Balsamic Vinaigrette, Pesto, Tomato, Swiss Cheese</p>",
+      "overview": "A mighty meaty double helping of all the reasons you love our burger.",
+      "price_sale": 8.05,
+      "price": 10.24,
+      "image": "https://res.cloudinary.com/dzoav55s4/image/upload/v1655803830/Shop/lj4w7egbqgh2bqtqlmhk.png",
+      "name": "Bacon Burger",
+      "sku": "PRD001",
+      "id": 2
+    },
+    {
+      "status": "hidden",
+      "categoryId": 1,
+      "quantity": 20,
+      "description_short": "Dr. Praeger’s Black Bean Burger, Focaccia bun, Balsamic Vinaigrette, Pesto, Tomato, Swiss Cheese",
+      "description": "<p>Although the legendary Double Burger really needs no introduction, please allow us… Tucked in between three soft buns are two all-beef patties, cheddar cheese, ketchup, onion, pickles and iceberg lettuce. Hesburger’s own paprika and cucumber mayonnaise add the crowning touch. Oh baby!</p><p></p><p><strong>Ingredients:</strong>&nbsp;Dr. Praeger’s Black Bean Burger, Focaccia bun, Balsamic Vinaigrette, Pesto, Tomato, Swiss Cheese</p>",
+      "overview": "A mighty meaty double helping of all the reasons you love our burger.",
+      "price_sale": 0,
+      "price": 9.43,
+      "image": "https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/10-1.png",
+      "name": "Chocolate cake",
+      "sku": "PRD001",
+      "id": 3
+    },
+    {
+      "status": "visiable",
+      "categoryId": 2,
+      "quantity": 10,
+      "description_short": "30 days easy returns if you change your mind",
+      "description": "<p>Although the legendary Double Burger really needs no introduction, please allow us… Tucked in between three soft buns are two all-beef patties, cheddar cheese, ketchup, onion, pickles and iceberg lettuce. Hesburger’s own paprika and cucumber mayonnaise add the crowning touch. Oh baby!</p><p><strong>Ingredients:</strong>&nbsp;Dr. Praeger’s Black Bean Burger, Focaccia bun, Balsamic Vinaigrette, Pesto, Tomato, Swiss Cheese</p>",
+      "overview": "Browse unique Coca-Cola products, clothing, & accessories, or customize Coke bottles and gifts",
+      "price_sale": 8.13,
+      "price": 12.86,
+      "image": "https://res.cloudinary.com/dzoav55s4/image/upload/v1656056303/Shop/azfleoxjdq9hfjxns0nm.png",
+      "name": "Iced Tea",
+      "sku": "PRD004",
+      "id": 4
+    },
+    {
+      "status": "visiable",
+      "categoryId": 1,
+      "quantity": 6,
+      "description_short": "dwqdwq",
+      "description": "<p>Although the legendary Double Burger really needs no introduction, please allow us… Tucked in between three soft buns are two all-beef patties, cheddar cheese, ketchup, onion, pickles and iceberg lettuce. Hesburger’s own paprika and cucumber mayonnaise add the crowning touch. Oh baby!</p><p><strong>Ingredients:</strong>&nbsp;Dr. Praeger’s Black Bean Burger, Focaccia bun, Balsamic Vinaigrette, Pesto, Tomato, Swiss Cheese</p>",
+      "overview": "dwdwqd",
+      "price_sale": 10.6,
+      "price": 12.9,
+      "image": "https://res.cloudinary.com/dzoav55s4/image/upload/v1656059213/Shop/yndy9kcj6c2kzyr1j03j.jpg",
+      "name": "Chicken Burger",
+      "sku": "PRD005",
+      "id": 5
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Burgers"
+    },
+    {
+      "id": 2,
+      "name": "Cold Drinks"
+    },
+    {
+      "id": 3,
+      "name": "Hot Drinks"
+    },
+    {
+      "id": 4,
+      "name": "Pasta"
+    },
+    {
+      "id": 5,
+      "name": "Pizza"
+    }
+  ],
+  "comments": [
+    {
+      "review": "So Gooddddddddd",
+      "name": "Ta Duc",
+      "email": "csacsacsa",
+      "rating": 3,
+      "userId": 0,
+      "productId": 1,
+      "id": 1
+    },
+    {
+      "review": "Good",
+      "name": "Duc",
+      "email": "tcduc@gmail.com",
+      "rating": 5,
+      "userId": 0,
+      "productId": 2,
+      "id": 2
+    },
+    {
+      "review": "Good",
+      "name": "Duc",
+      "email": "dwqdqw",
+      "rating": 2,
+      "userId": 0,
+      "productId": 5,
+      "id": 3
     }
   ],
   "users": [
@@ -25,6 +132,7 @@
     {
       "email": "user@gmail.com",
       "password": "$2a$10$ZppZ1xTxRkbNHqQKFxIQM.rfE0thHWyWc7hq3iePoROaAmyczBQBW",
+      "username": "Ta Cong Duc",
       "id": 2
     }
   ]

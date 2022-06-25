@@ -3,10 +3,11 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 
-import { store } from "./store/store";
+import { store } from "./redux/store";
 import "swiper/css";
 import "antd/dist/antd.css";
 import "react-quill/dist/quill.snow.css";
+import "react-toastify/dist/ReactToastify.css";
 import "./styles/style.scss";
 import App from "./App";
 

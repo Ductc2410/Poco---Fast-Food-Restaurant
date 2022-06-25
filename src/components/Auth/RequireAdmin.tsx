@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
-import { RootState } from "../../store/store";
+import { RootState } from "../../redux/store";
 
 export default function RequireAdmin({ children }: { children: any }) {
   const { isLogging, user } = useSelector((state: RootState) => state.auth);
