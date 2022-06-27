@@ -14,9 +14,7 @@ const PopularDishser = () => (
           <li className="btn btn-radius">burger</li>
           <li className="btn btn-radius">dersest</li>
         </ul>
-        <div className="popular_products">
-          <ProductItem />
-        </div>
+        <div className="popular_products">{/* <ProductItem /> */}</div>
       </div>
     </div>
   </section>

@@ -10,7 +10,7 @@
       "price_sale": 0,
       "price": 12.61,
       "image": "https://res.cloudinary.com/dzoav55s4/image/upload/v1655710062/Shop/m9xnxgtsphlufstu59tk.png",
-      "name": "BBQ chicken breast",
+      "name": "BBQ chicken",
       "sku": "PRD001",
       "id": 1
     },
@@ -25,7 +25,7 @@
       "price": 10.24,
       "image": "https://res.cloudinary.com/dzoav55s4/image/upload/v1655803830/Shop/lj4w7egbqgh2bqtqlmhk.png",
       "name": "Bacon Burger",
-      "sku": "PRD001",
+      "sku": "PRD002",
       "id": 2
     },
     {
@@ -39,7 +39,7 @@
       "price": 9.43,
       "image": "https://demo2wpopal.b-cdn.net/poco/wp-content/uploads/2020/08/10-1.png",
       "name": "Chocolate cake",
-      "sku": "PRD001",
+      "sku": "PRD003",
       "id": 3
     },
     {
@@ -55,20 +55,6 @@
       "name": "Iced Tea",
       "sku": "PRD004",
       "id": 4
-    },
-    {
-      "status": "visiable",
-      "categoryId": 1,
-      "quantity": 6,
-      "description_short": "dwqdwq",
-      "description": "<p>Although the legendary Double Burger really needs no introduction, please allow us… Tucked in between three soft buns are two all-beef patties, cheddar cheese, ketchup, onion, pickles and iceberg lettuce. Hesburger’s own paprika and cucumber mayonnaise add the crowning touch. Oh baby!</p><p><strong>Ingredients:</strong>&nbsp;Dr. Praeger’s Black Bean Burger, Focaccia bun, Balsamic Vinaigrette, Pesto, Tomato, Swiss Cheese</p>",
-      "overview": "dwdwqd",
-      "price_sale": 10.6,
-      "price": 12.9,
-      "image": "https://res.cloudinary.com/dzoav55s4/image/upload/v1656059213/Shop/yndy9kcj6c2kzyr1j03j.jpg",
-      "name": "Chicken Burger",
-      "sku": "PRD005",
-      "id": 5
     }
   ],
   "categories": [
@@ -120,6 +106,15 @@
       "userId": 0,
       "productId": 5,
       "id": 3
+    },
+    {
+      "review": "Never comback again !!!!!",
+      "name": "Duc",
+      "email": "acsacas",
+      "rating": 1,
+      "userId": 0,
+      "productId": 3,
+      "id": 4
     }
   ],
   "users": [
