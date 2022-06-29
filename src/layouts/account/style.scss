@@ -1,0 +1,54 @@
+.account {
+  &_container {
+    grid-template-columns: 3fr 9fr;
+    column-gap: 50px;
+    padding: 100px 0;
+  }
+
+  &_sidebar {
+    &-list {
+      margin-bottom: 0;
+    }
+    &-item {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+      padding: 15px 20px;
+      text-transform: capitalize;
+      margin-bottom: 10px;
+      border-radius: 5px;
+
+      a,
+      i {
+        color: $text-color;
+      }
+
+      i {
+        font-size: 25px;
+      }
+
+      &.active {
+        background-color: $primary-color;
+        a,
+        i {
+          color: white;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: $primary-color;
+        a,
+        i {
+          color: white;
+        }
+      }
+    }
+  }
+
+  &_content {
+    padding: 20px;
+    background-color: #f4f6f9;
+    height: max-content;
+  }
+}

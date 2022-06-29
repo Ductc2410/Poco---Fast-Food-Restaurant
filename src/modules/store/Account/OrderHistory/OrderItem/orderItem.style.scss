@@ -1,0 +1,59 @@
+.order {
+  &_item {
+    background-color: white;
+    margin-bottom: 30px;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 20px;
+      border-bottom: 1px solid #e0e6ef;
+
+      .total {
+        font-weight: 600;
+        color: black;
+      }
+    }
+
+    &-content {
+      padding: 0 20px;
+      border-bottom: 1px solid #e0e6ef;
+      display: flex;
+      align-items: center;
+      column-gap: 30px;
+
+      img {
+        width: 150px;
+      }
+    }
+
+    &-footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 20px;
+      p {
+        font-weight: 600;
+        color: black;
+      }
+      span {
+        font-weight: normal;
+        margin-left: 20px;
+      }
+
+      a {
+        font-weight: 600;
+      }
+    }
+  }
+
+  &_infor {
+    .name {
+      font-weight: 600;
+      color: black;
+    }
+  }
+}

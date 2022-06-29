@@ -1,14 +1,26 @@
-import { Outlet } from "react-router-dom";
-import { UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
+import { Outlet, Link } from "react-router-dom";
 import { Layout, Menu } from "antd";
-import React from "react";
+import "./admin.style.scss";
 
-const { Content, Footer, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 const items = [
-  { label: "Product", key: "item-1" },
-  { label: "Category", key: "item-2" },
-  { label: "Order", key: "item-3" }
+  {
+    label: "Product",
+    key: "product",
+    children: [
+      { label: <Link to="/admin/product">List</Link>, key: "product-list" },
+      { label: <Link to="/admin/product/create">Create</Link>, key: "product-create" }
+    ]
+  },
+  {
+    label: <Link to="/admin/category">Category</Link>,
+    key: "category"
+  },
+  {
+    label: <Link to="/shop">Shop</Link>,
+    key: "Shop"
+  }
 ];
 
 export default function AdminLayout() {
@@ -24,7 +36,6 @@ export default function AdminLayout() {
             <Outlet />
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>Ant Design ©2018 Created by Ant UED</Footer>
       </Layout>
     </Layout>
   );

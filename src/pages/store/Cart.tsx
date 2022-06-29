@@ -4,7 +4,7 @@ import Cart from "../../modules/store/Cart/Cart";
 export default function CartPage() {
   return (
     <>
-      <Breakscrumb text="Your Shopping Cart" />
+      <Breakscrumb text="Your Cart" />
       <Cart />
     </>
   );

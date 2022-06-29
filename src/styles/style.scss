@@ -1,3 +1,11 @@
 @import "./variables";
 @import "./reset";
 @import "./global";
+
+.ant-layout {
+  min-height: 100vh;
+}
+
+.ql-container {
+  min-height: 150px;
+}
