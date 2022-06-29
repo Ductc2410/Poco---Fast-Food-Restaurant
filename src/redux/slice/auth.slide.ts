@@ -22,6 +22,7 @@ export const signin = createAsyncThunk<
 interface InitialStateType {
   loading: boolean;
   error: string;
+
   user: {
     email: string;
     id: number;

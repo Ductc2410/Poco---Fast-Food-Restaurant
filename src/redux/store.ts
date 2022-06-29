@@ -8,11 +8,12 @@ import cartSlice from "./slice/cart.slide";
 
 import { productApi } from "../api/produc.api";
 import { commentApi } from "../api/comment.api";
+import { categoryApi } from "../api/category.api";
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["cart"]
+  whitelist: ["cart", "auth"]
 };
 
 const rootReducer = combineReducers({
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
   cart: cartSlice.reducer,
 
   [productApi.reducerPath]: productApi.reducer,
-  [commentApi.reducerPath]: commentApi.reducer
+  [commentApi.reducerPath]: commentApi.reducer,
+  [categoryApi.reducerPath]: categoryApi.reducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -31,7 +33,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false
-    }).concat(productApi.middleware, commentApi.middleware)
+    }).concat(productApi.middleware, commentApi.middleware, categoryApi.middleware)
 });
 
 export const persitor = persistStore(store);

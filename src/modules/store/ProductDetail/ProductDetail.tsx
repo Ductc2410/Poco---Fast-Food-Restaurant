@@ -125,10 +125,10 @@ const ProductDetail = () => {
             <div className="product_related">
               <h3 className="section_title">RELATED PRODUCTS</h3>
               <div className="related_container container grid">
+                {/* <ProductItem />
                 <ProductItem />
                 <ProductItem />
-                <ProductItem />
-                <ProductItem />
+                <ProductItem /> */}
               </div>
             </div>
           </>

@@ -1,33 +1,51 @@
-import { Table } from "antd";
-
-const dataSource = [
-  {
-    key: "1",
-    name: "Mike",
-    address: "10 Downing Street"
-  },
-  {
-    key: "2",
-    name: "John",
-    address: "10 Downing Street"
-  }
-];
-
-const columns = [
-  {
-    title: "Name",
-    dataIndex: "name",
-    key: "name"
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-    key: "address"
-  }
-];
+import { useState } from "react";
+import { Table, Button, Popconfirm } from "antd";
+import { useGetCategoryQuery } from "../../../api/category.api";
+import ICategory from "../../../types/Category";
 
 const CategoryList = () => {
-  return <Table bordered dataSource={dataSource} columns={columns} pagination={false} />;
+  const [open, setOpen] = useState<boolean>(false);
+  const { data, isLoading } = useGetCategoryQuery();
+
+  const removeCategory = (id: number) => {
+    setOpen(true);
+  };
+
+  const columns = [
+    {
+      title: "Id",
+      dataIndex: "id",
+      key: "id"
+    },
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name"
+    },
+    {
+      title: "Action",
+      dataIndex: "action",
+      key: "action",
+      render: (_: any, record: ICategory) => (
+        <Popconfirm title="Are you sure to delete this category?" okText="Yes" cancelText="No">
+          <Button danger onClick={() => removeCategory(record.id)}>
+            Delete
+          </Button>
+        </Popconfirm>
+      )
+    }
+  ];
+
+  return (
+    <Table
+      dataSource={data}
+      columns={columns}
+      rowKey={(category) => category.id}
+      loading={isLoading}
+      pagination={false}
+      bordered
+    />
+  );
 };
 
 export default CategoryList;

@@ -1,4 +1,9 @@
 .shop {
+  .ant-pagination {
+    margin-top: 50px;
+    text-align: center;
+  }
+
   &_breadcrumb {
     background-image: url("../images/breadcrumb.jpg");
   }
@@ -12,6 +17,7 @@
   &_products {
     grid-template-columns: 1fr;
     row-gap: 36px;
+    height: max-content;
   }
 
   &_sidebar {
@@ -22,19 +28,62 @@
 .sidebar {
   &_item {
     margin-bottom: 40px;
+
+    .ant-tag {
+      border-radius: 5px;
+      padding: 5px 10px;
+
+      span {
+        margin-left: 10px;
+      }
+    }
   }
 
   &_title {
     color: black;
     font-size: 20px;
     font-weight: $font-semibold;
-    padding: 0 20px 10px 20px;
+    padding: 5px 20px 10px 0px;
+    margin-bottom: 0;
+  }
+
+  &_tag {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+
+  &_title-cate {
+    padding-left: 20px;
   }
 
   &_category {
     padding: 8px;
     border: 1px solid #e5e5e5;
     border-radius: 20px;
+  }
+
+  &_price {
+    .ant-slider-track,
+    .ant-slider-handle {
+      background-color: $primary-color;
+    }
+
+    .ant-slider-handle {
+      border-color: $primary-color;
+    }
+
+    .ant-slider:hover .ant-slider-track {
+      background-color: $primary-color;
+    }
+
+    .ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open) {
+      border-color: $primary-color;
+    }
+
+    .btn-filter {
+      padding: 6px 18px;
+    }
   }
 
   &_form {
@@ -60,7 +109,8 @@
 .category {
   &_list {
     background-color: #fbf7e8;
-    border-radius: 20px;
+    border-radius: 16px;
+    margin-bottom: 0;
   }
 
   &_item {
@@ -68,6 +118,7 @@
     align-items: center;
     column-gap: 20px;
     padding: 10px 20px;
+    cursor: pointer;
 
     i {
       font-size: 24px;

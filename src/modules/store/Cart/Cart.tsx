@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../../redux/store";
 import { increaseCartItem, decreaseCartItem } from "../../../redux/slice/cart.slide";
 import "./cart.style.scss";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -93,7 +94,7 @@ const Cart = () => {
 
             <div className="cart_btn">
               <button type="button" className="btn btn-primary">
-                Proceed to cart
+                <Link to={"/checkout"}>Proceed to checkout</Link>
               </button>
             </div>
           </>

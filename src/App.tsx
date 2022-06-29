@@ -17,6 +17,8 @@ import AdminCategory from "./pages/admin/Category";
 import ProductList from "./modules/admin/Product/ProductList";
 import ProductTab from "./modules/admin/Product/ProductTab";
 import UserList from "./modules/UserList";
+import AccountLayout from "./layouts/account/account.layout";
+import OrderHistory from "./modules/store/Account/OrderHistory";
 
 function App() {
   return (
@@ -32,6 +34,11 @@ function App() {
 
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+        </Route>
+
+        <Route path="account" element={<AccountLayout />}>
+          <Route index element={<Navigate to="order-history" />} />
+          <Route path="order-history" element={<OrderHistory />} />
         </Route>
 
         <Route path="auth">

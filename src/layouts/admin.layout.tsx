@@ -14,8 +14,12 @@ const items = [
     ]
   },
   {
-    label: <Link to="/admin/user">Create</Link>,
+    label: <Link to="/admin/category">Category</Link>,
     key: "category"
+  },
+  {
+    label: <Link to="/shop">Shop</Link>,
+    key: "Shop"
   }
 ];
 

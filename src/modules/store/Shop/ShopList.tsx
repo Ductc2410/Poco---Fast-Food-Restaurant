@@ -1,14 +1,25 @@
 import ProductItem from "../../../components/Product/ProductItem";
-import { useGetProductsQuery } from "../../../api/produc.api";
+import IProduct from "../../../types/Product";
 
-const ShopList = () => {
-  const { isLoading, isSuccess, data } = useGetProductsQuery();
+interface IDataProp {
+  products: IProduct[];
+  total: string | undefined;
+}
 
+const ShopList = ({
+  isLoading,
+  isSuccess,
+  data
+}: {
+  isLoading: boolean;
+  isSuccess: boolean;
+  data: IDataProp;
+}) => {
   return (
     <div className="shop_products grid">
       {isLoading && "Loading"}
 
-      {isSuccess && data?.map((product, index) => <ProductItem key={index} product={product} />)}
+      {data && data.products.map((product, index) => <ProductItem key={index} product={product} />)}
     </div>
   );
 };
