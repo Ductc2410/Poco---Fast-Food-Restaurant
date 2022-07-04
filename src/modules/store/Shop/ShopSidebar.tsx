@@ -8,6 +8,38 @@ interface ShopSidebarProps {
 const ShopSidebar = ({ changeParams, params }: ShopSidebarProps) => {
   return (
     <div className="shop_sidebar">
+      <div className="sidebar_item">
+        <h3 className="sidebar_title">Your Filters</h3>
+        <div className="sidebar_tag">
+          <Tag
+            color="orange"
+            closable
+            visible={!!params.categoryId}
+            onClose={() => changeParams({ categoryId: undefined })}
+          >
+            Pizza
+          </Tag>
+
+          <Tag
+            color="orange"
+            closable
+            visible={!!params.name_like}
+            onClose={() => changeParams({ name_like: undefined })}
+          >
+            {params.name_like}
+          </Tag>
+
+          <Tag
+            color="orange"
+            closable
+            visible={!!params.price_lte}
+            onClose={() => changeParams({ price_gte: undefined, price_lte: undefined })}
+          >
+            ${params.price_gte} - ${params.price_lte}
+          </Tag>
+        </div>
+      </div>
+
       <div className="sidebar_item sidebar_category">
         <h3 className="sidebar_title sidebar_title-cate">Categories</h3>
         <ul className="category_list">
@@ -78,38 +110,6 @@ const ShopSidebar = ({ changeParams, params }: ShopSidebarProps) => {
         <button type="button" className="btn btn-primary btn-hover btn-filter">
           Filter
         </button>
-      </div>
-
-      <div className="sidebar_item">
-        <h3 className="sidebar_title">Your Filter</h3>
-        <div className="sidebar_tag">
-          <Tag
-            color="orange"
-            closable
-            visible={!!params.categoryId}
-            onClose={() => changeParams({ categoryId: undefined })}
-          >
-            Pizza
-          </Tag>
-
-          <Tag
-            color="orange"
-            closable
-            visible={!!params.name_like}
-            onClose={() => changeParams({ name_like: undefined })}
-          >
-            {params.name_like}
-          </Tag>
-
-          <Tag
-            color="orange"
-            closable
-            visible={!!params.price_lte}
-            onClose={() => changeParams({ price_gte: undefined, price_lte: undefined })}
-          >
-            ${params.price_gte} - ${params.price_lte}
-          </Tag>
-        </div>
       </div>
 
       <div className="sidebar_item sidebar_history">

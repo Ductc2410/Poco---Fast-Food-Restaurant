@@ -72,10 +72,10 @@ const CheckoutForm = () => {
         notification.success({
           message: "Thong Bao",
           description: "Dat hang thanh cong, Tu dong chuyen ve trang chu sau 2s",
-          duration: 1.5,
+          duration: 1.75,
           placement: "top",
           onClose: () => {
-            navigate("/shop");
+            navigate("/account/order-history");
           }
         });
       });

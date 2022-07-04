@@ -12,9 +12,9 @@ const Header = () => (
         </div>
 
         <div className="nav_left">
-          <a href="#">
+          <Link to="/home">
             <img className="nav_logo" src={Logo} alt="" />
-          </a>
+          </Link>
 
           <ul className="nav_list">
             <li className="nav_item">
@@ -60,10 +60,10 @@ const Header = () => (
               </Link>
             </li>
             <li className="action_item">
-              <Link to="login">
+              <Link to="account">
                 <i className="bx bxs-user" />
               </Link>
-              <a href="login" className="action_link">
+              <a href="account" className="action_link">
                 Account
               </a>
             </li>
@@ -80,7 +80,7 @@ const Header = () => (
               </a>
             </li>
             <li className="action_item">
-              <Link to="cart">
+              <Link to="/cart">
                 <i className="bx bxs-cart" />
               </Link>
               <Link to="/cart" className="action_link">

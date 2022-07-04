@@ -18,6 +18,10 @@ const items = [
     key: "category"
   },
   {
+    label: <Link to="/admin/order">Order</Link>,
+    key: "order"
+  },
+  {
     label: <Link to="/shop">Shop</Link>,
     key: "Shop"
   }

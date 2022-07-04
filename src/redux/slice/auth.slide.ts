@@ -46,6 +46,7 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(signin.pending, (state) => {
+      state.error = "";
       state.loading = true;
     });
     builder.addCase(signin.rejected, (state, { payload }) => {

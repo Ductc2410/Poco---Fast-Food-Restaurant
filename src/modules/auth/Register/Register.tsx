@@ -1,5 +1,3 @@
-import "./register.style.scss";
-
 const RegisterForm = () => (
   <div className="login_container container">
     <div className="login_form section">

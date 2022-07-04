@@ -47,6 +47,11 @@
       a {
         font-weight: 600;
       }
+
+      h4:hover {
+        cursor: pointer;
+        color: $primary-color;
+      }
     }
   }
 

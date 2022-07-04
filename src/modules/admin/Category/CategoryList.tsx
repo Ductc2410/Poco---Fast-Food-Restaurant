@@ -1,15 +1,11 @@
 import { useState } from "react";
 import { Table, Button, Popconfirm } from "antd";
-import { useGetCategoryQuery } from "../../../api/category.api";
+import { useGetCategoryQuery, useRemoveCategoryMutation } from "../../../api/category.api";
 import ICategory from "../../../types/Category";
 
 const CategoryList = () => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [removeCategory] = useRemoveCategoryMutation();
   const { data, isLoading } = useGetCategoryQuery();
-
-  const removeCategory = (id: number) => {
-    setOpen(true);
-  };
 
   const columns = [
     {
@@ -27,10 +23,13 @@ const CategoryList = () => {
       dataIndex: "action",
       key: "action",
       render: (_: any, record: ICategory) => (
-        <Popconfirm title="Are you sure to delete this category?" okText="Yes" cancelText="No">
-          <Button danger onClick={() => removeCategory(record.id)}>
-            Delete
-          </Button>
+        <Popconfirm
+          title="Are you sure to delete this category?"
+          okText="Yes"
+          cancelText="No"
+          onConfirm={() => removeCategory(record.id)}
+        >
+          <Button danger>Delete</Button>
         </Popconfirm>
       )
     }

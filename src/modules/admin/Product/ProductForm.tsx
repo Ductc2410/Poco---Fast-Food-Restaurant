@@ -51,7 +51,6 @@ const ProductForm = () => {
       labelCol={{ span: 3 }}
       wrapperCol={{ span: 10 }}
       labelAlign="left"
-      initialValues={{ remember: true }}
       onFinish={handleSubmit(onSubmit)}
       autoComplete="off"
     >
