@@ -8,12 +8,15 @@ import * as yup from "yup";
 import { useSelector } from "react-redux";
 import { useCreateCommentMutation } from "../../../../api/comment.api";
 import { RootState } from "../../../../redux/store";
+import "./commentForm.style.scss";
+import { getDate } from "../../../../helper/functions";
 
 interface IFormInput {
   name: string;
   email: string;
   review: string;
   rating: number;
+  date: string;
 }
 
 const schema = yup
@@ -30,7 +33,7 @@ interface Props {
 }
 
 const CommentForm = ({ id }: Props) => {
-  const { user } = useSelector((state: RootState) => state.auth);
+  const { user, isLogging } = useSelector((state: RootState) => state.auth);
   const [createComment] = useCreateCommentMutation();
 
   const {
@@ -40,20 +43,19 @@ const CommentForm = ({ id }: Props) => {
     setValue,
     formState: { errors }
   } = useForm<IFormInput>({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schema),
+    defaultValues: user
   });
 
   const onSubmit: SubmitHandler<IFormInput> = (formData) => {
     createComment({
       ...formData,
       userId: user.id,
-      productId: id
+      productId: id,
+      date: getDate()
     });
     reset({
-      name: "",
-      email: "",
-      review: "",
-      rating: undefined
+      review: ""
     });
   };
 
@@ -63,11 +65,13 @@ const CommentForm = ({ id }: Props) => {
 
   return (
     <div className="comment-form">
-      <p>
-        You aren't login, your comment will be a guest comment.
-        <br />
-        <Link to="/login"> Login Here !!!</Link>
-      </p>
+      {!isLogging && (
+        <div className="comment-warning">
+          You aren't login, your comment will be a guest comment.
+          <br />
+          <Link to="/login"> Login Here !!!</Link>
+        </div>
+      )}
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="comment_group">

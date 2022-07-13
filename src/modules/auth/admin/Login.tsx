@@ -12,17 +12,17 @@ const { Text } = Typography;
 const Login = () => {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
-  const { error, loading, isLogging } = useSelector((state: RootState) => state.auth);
+  const { error, loading, isLogging, user } = useSelector((state: RootState) => state.auth);
 
   const handleSubmit = (data: IUserLogin) => {
     dispatch(signin(data));
   };
 
   useEffect(() => {
-    if (isLogging) {
+    if (isLogging && Number(user.email) === 1) {
       navigate("/admin/product");
     }
-  }, [isLogging, navigate]);
+  }, [isLogging, user, navigate]);
 
   return (
     <Form

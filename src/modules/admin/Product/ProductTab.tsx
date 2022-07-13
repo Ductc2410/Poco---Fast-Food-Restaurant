@@ -224,10 +224,6 @@ const ProductTab = ({ mode }: FormMode) => {
               <Option value="visiable">Visiable</Option>
               <Option value="hidden">Hidden</Option>
             </Select>
-
-            <Button htmlType="submit" type="primary" loading={loading}>
-              Create
-            </Button>
           </Card>
 
           <Card size="small" type="inner" title="Category" style={{ marginTop: "40px" }}>
@@ -259,6 +255,10 @@ const ProductTab = ({ mode }: FormMode) => {
               <Button icon={<UploadOutlined />}>Upload</Button>
             </Upload>
           </Card>
+
+          <Button htmlType="submit" type="primary" loading={loading} style={{ marginTop: "40px" }}>
+            Create
+          </Button>
         </Col>
       </Row>
     </Form>

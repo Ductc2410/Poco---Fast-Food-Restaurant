@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../redux/store";
 import { increaseCartItem, decreaseCartItem } from "../../../redux/slice/cart.slide";
 import "./cart.style.scss";
-import { Link } from "react-router-dom";
 
 const Cart = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -80,7 +80,7 @@ const Cart = () => {
               <h2 className="cart_total-title">Cart totals</h2>
               <div className="cart_total-item">
                 <p>Subtotal</p>
-                <p>${amount}</p>
+                <p>${amount.toFixed(2)}</p>
               </div>
               <div className="cart_total-item">
                 <p>Shipping</p>
@@ -88,7 +88,7 @@ const Cart = () => {
               </div>
               <div className="cart_total-item">
                 <p>Total</p>
-                <p>${amount}</p>
+                <p>${amount.toFixed(2)}</p>
               </div>
             </div>
 

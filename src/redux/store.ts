@@ -9,6 +9,7 @@ import cartSlice from "./slice/cart.slide";
 import { productApi } from "../api/produc.api";
 import { commentApi } from "../api/comment.api";
 import { categoryApi } from "../api/category.api";
+import ordersSlice from "./slice/order.slide";
 
 const persistConfig = {
   key: "root",
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   products: productsSlice.reducer,
   auth: authSlice.reducer,
   cart: cartSlice.reducer,
+  order: ordersSlice.reducer,
 
   [productApi.reducerPath]: productApi.reducer,
   [commentApi.reducerPath]: commentApi.reducer,

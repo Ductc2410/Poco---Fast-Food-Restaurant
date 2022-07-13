@@ -23,14 +23,28 @@
 
 .form {
   &_group {
-    padding: 13px 20px;
     margin-bottom: 30px;
-    background-color: white;
     border-radius: 5px;
 
     input {
       width: 100%;
       font-size: 16px;
+      padding: 13px 20px;
+      border-radius: 5px;
+      background-color: white;
+    }
+  }
+
+  &_error {
+    margin-top: 10px;
+    text-transform: capitalize;
+    font-size: 14px;
+    color: red;
+
+    &-login {
+      font-size: 14px;
+      margin-left: 0;
+      color: red;
     }
   }
 }

@@ -7,8 +7,8 @@ export const commentApi = createApi({
     baseUrl: "http://localhost:3000"
   }),
   endpoints: (builder) => ({
-    getComments: builder.query<any[], number>({
-      query: (id) => `/comments?productId=${id}`,
+    getComments: builder.query<any[], { id: number; rating: number }>({
+      query: ({ id, rating }) => `/comments?productId=${id}`,
       providesTags: ["Comments"],
       keepUnusedDataFor: 30
     }),

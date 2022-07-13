@@ -1,10 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getProductList } from "../../api/product";
+import { getProductList, removeProduct } from "../../api/product";
 import IProduct from "../../types/Product";
 
-export const getProducts = createAsyncThunk("product/getProductList", async () => {
-  const { data } = await getProductList();
+export const getProducts = createAsyncThunk("product/getProductList", async (filters: any) => {
+  const { data } = await getProductList(filters);
   return data;
+});
+
+export const deleteProduct = createAsyncThunk("product/removeProduct", async (id: number) => {
+  await removeProduct(id);
+  return { id };
 });
 
 interface InitialStateType {
@@ -39,6 +44,11 @@ const productsSlice = createSlice({
         state.total = Number(action.payload.total);
         state.loading = false;
       });
+
+    builder.addCase(deleteProduct.fulfilled, (state, action) => {
+      const newProducts = state.products.filter((product) => product.id !== action.payload.id);
+      state.products = newProducts;
+    });
   }
 });
 

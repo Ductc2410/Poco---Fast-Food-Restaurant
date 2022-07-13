@@ -3,8 +3,17 @@
     background-color: white;
     margin-bottom: 30px;
 
+    &:last-child {
+      margin-bottom: 0;
+    }
+
     p {
       margin-bottom: 0;
+    }
+
+    &-date {
+      color: black;
+      font-weight: 600;
     }
 
     &-header {
@@ -46,6 +55,11 @@
 
       a {
         font-weight: 600;
+      }
+
+      h4:hover {
+        cursor: pointer;
+        color: $primary-color;
       }
     }
   }

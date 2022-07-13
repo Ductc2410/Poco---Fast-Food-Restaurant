@@ -43,9 +43,16 @@ const initialState: InitialStateType = {
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    logout(state) {
+      state.user = { email: "", id: 0 };
+      state.isLogging = false;
+    }
+  },
+
   extraReducers: (builder) => {
     builder.addCase(signin.pending, (state) => {
+      state.error = "";
       state.loading = true;
     });
     builder.addCase(signin.rejected, (state, { payload }) => {
@@ -56,6 +63,7 @@ const authSlice = createSlice({
     });
     builder.addCase(signin.fulfilled, (state, { payload }) => {
       const { data } = payload;
+      console.log("here");
 
       state.loading = false;
       state.isLogging = true;
@@ -65,3 +73,4 @@ const authSlice = createSlice({
 });
 
 export default authSlice;
+export const { logout } = authSlice.actions;

@@ -9,6 +9,7 @@ import { RootState } from "../../../../redux/store";
 
 import IOrder from "../../../../types/Order";
 import { schema } from "./checkoutForm.schema";
+import { getDate } from "../../../../helper/functions";
 
 interface FormData {
   name: string;
@@ -19,7 +20,7 @@ interface FormData {
 }
 
 const CheckoutForm = () => {
-  const nanoid = customAlphabet("1234567890abcdef", 10);
+  const nanoid = customAlphabet("1234567890ABCDEF", 10);
   const { items, amount } = useSelector((state: RootState) => state.cart);
   const { user } = useSelector((state: RootState) => state.auth);
   const [loading, setLoading] = useState<boolean>(false);
@@ -51,9 +52,10 @@ const CheckoutForm = () => {
       address: data.address,
       email: data.email,
       orderDetail,
-      amount: Math.round(amount * 100) / 100,
+      amount: Number(amount.toFixed(2)),
       note: data.note,
       status: "Order Placed",
+      date: getDate(),
       userId: user.id
     };
 
@@ -75,7 +77,7 @@ const CheckoutForm = () => {
           duration: 1.5,
           placement: "top",
           onClose: () => {
-            navigate("/shop");
+            navigate("/account/order-history");
           }
         });
       });
@@ -90,7 +92,12 @@ const CheckoutForm = () => {
               Your name
             </label>
           </div>
-          <input type="text" id="name" className="form_control" {...register("name")} />
+          <input
+            type="text"
+            id="name"
+            className={`form_control ${errors.name && "error"}`}
+            {...register("name")}
+          />
         </div>
         <div className="form_group">
           <div className="form_label">
@@ -98,7 +105,12 @@ const CheckoutForm = () => {
               Address
             </label>
           </div>
-          <input type="text" id="name" className="form_control" {...register("address")} />
+          <input
+            type="text"
+            id="name"
+            className={`form_control ${errors.address && "error"}`}
+            {...register("address")}
+          />
         </div>
         <div className="form_group">
           <div className="form_label">
@@ -106,7 +118,12 @@ const CheckoutForm = () => {
               Phone
             </label>
           </div>
-          <input type="text" id="name" className="form_control" {...register("phone")} />
+          <input
+            type="text"
+            id="name"
+            className={`form_control ${errors.phone && "error"}`}
+            {...register("phone")}
+          />
         </div>
         <div className="form_group">
           <div className="form_label">
@@ -114,7 +131,12 @@ const CheckoutForm = () => {
               Email Address
             </label>
           </div>
-          <input type="text" id="name" className="form_control" {...register("email")} />
+          <input
+            type="text"
+            id="name"
+            className={`form_control ${errors.email && "error"}`}
+            {...register("email")}
+          />
         </div>
       </div>
       <div className="checkout_form-right">

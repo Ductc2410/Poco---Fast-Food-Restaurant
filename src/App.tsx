@@ -1,6 +1,7 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 
 import ClientLayout from "./layouts/client.layout";
+import AccountLayout from "./layouts/account/account.layout";
 import AdminLayout from "./layouts/admin.layout";
 
 import Home from "./pages/store/Home";
@@ -10,15 +11,16 @@ import Register from "./pages/auth/Register/Register";
 import Detail from "./pages/store/Detail";
 import CartPage from "./pages/store/Cart";
 import CheckoutPage from "./pages/store/checkout";
+import OrderHistory from "./modules/store/Account/OrderHistory";
 
 import RequireAdmin from "./components/Auth/RequireAdmin";
+import RequireUser from "./components/Auth/RequireUser";
 import AdminLogin from "./pages/admin/auth/AdminLogin";
 import AdminCategory from "./pages/admin/Category";
 import ProductList from "./modules/admin/Product/ProductList";
 import ProductTab from "./modules/admin/Product/ProductTab";
 import UserList from "./modules/UserList";
-import AccountLayout from "./layouts/account/account.layout";
-import OrderHistory from "./modules/store/Account/OrderHistory";
+import Order from "./modules/admin/Order/Order";
 
 function App() {
   return (
@@ -34,9 +36,17 @@ function App() {
 
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="test" element={<UserList />} />
         </Route>
 
-        <Route path="account" element={<AccountLayout />}>
+        <Route
+          path="account"
+          element={
+            <RequireUser>
+              <AccountLayout />
+            </RequireUser>
+          }
+        >
           <Route index element={<Navigate to="order-history" />} />
           <Route path="order-history" element={<OrderHistory />} />
         </Route>
@@ -46,12 +56,20 @@ function App() {
           <Route path="login" element={<AdminLogin />} />
         </Route>
 
-        <Route path="admin" element={<AdminLayout />}>
+        <Route
+          path="admin"
+          element={
+            <RequireAdmin>
+              <AdminLayout />
+            </RequireAdmin>
+          }
+        >
           <Route index element={<Navigate to="product" />} />
           <Route path="product" element={<ProductList />} />
           <Route path="product/create" element={<ProductTab mode="create" />} />
           <Route path="product/:id" element={<ProductTab mode="edit" />} />
           <Route path="category" element={<AdminCategory />} />
+          <Route path="order" element={<Order />} />
           <Route path="user" element={<UserList />} />
         </Route>
       </Routes>
