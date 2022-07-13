@@ -21,12 +21,13 @@ export const productApi = createApi({
       query: (params) => {
         let url = "";
         for (const key in params) {
-          if (key && params[key]) {
-            url += `&${key}=${params[key]}`;
+          if (key && params[key as keyof IQueryArg]) {
+            url += `&${key}=${params[key as keyof IQueryArg]}`;
           }
         }
         return `/products?${url.substring(1)}`;
       },
+
       transformResponse: (returnValue: IProduct[], meta: any) => {
         return {
           products: returnValue,

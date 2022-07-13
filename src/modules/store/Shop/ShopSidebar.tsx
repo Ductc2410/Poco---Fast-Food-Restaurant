@@ -1,11 +1,27 @@
+import { ChangeEvent, useEffect, useState } from "react";
 import { Slider, Tag } from "antd";
+
 import { IParamsFilter } from "../../../types/Pagination";
+import ICategory from "../../../types/Category";
+import { getCategory } from "../../../api/category";
 
 interface ShopSidebarProps {
   changeParams: Function;
   params: IParamsFilter;
 }
 const ShopSidebar = ({ changeParams, params }: ShopSidebarProps) => {
+  const [category, setCategory] = useState<ICategory[]>();
+
+  useEffect(() => {
+    getCategory().then(({ data }) => setCategory(data));
+  }, []);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    changeParams({
+      name_like: e.target.value
+    });
+  };
+
   return (
     <div className="shop_sidebar">
       <div className="sidebar_item">
@@ -17,7 +33,7 @@ const ShopSidebar = ({ changeParams, params }: ShopSidebarProps) => {
             visible={!!params.categoryId}
             onClose={() => changeParams({ categoryId: undefined })}
           >
-            Pizza
+            {category && category.find((item) => item.id === params.categoryId)?.name}
           </Tag>
 
           <Tag
@@ -43,50 +59,25 @@ const ShopSidebar = ({ changeParams, params }: ShopSidebarProps) => {
       <div className="sidebar_item sidebar_category">
         <h3 className="sidebar_title sidebar_title-cate">Categories</h3>
         <ul className="category_list">
-          <li
-            className="category_item"
-            onClick={() =>
-              changeParams({
-                categoryId: 1
-              })
-            }
-          >
-            <i className="bx bxs-pizza" />
-            <span>Pizza</span>
-          </li>
-          <li className="category_item">
-            <i className="bx bxs-baguette" />
-            <span>Burgers</span>
-          </li>
-          <li className="category_item">
-            <i className="bx bxs-pizza" />
-            <span>Hots Drinks</span>
-          </li>
-          <li className="category_item">
-            <i className="bx bxs-bowl-hot" />
-            <span>Drinks</span>
-          </li>
-          <li className="category_item">
-            <i className="bx bxs-pizza" />
-            <span>Pasta</span>
-          </li>
-          <li className="category_item">
-            <i className="bx bxs-food-menu" />
-            <span>Uncategorized</span>
-          </li>
+          {category &&
+            category.map((item) => (
+              <li
+                key={item.id}
+                className="category_item"
+                onClick={() =>
+                  changeParams({
+                    categoryId: item.id
+                  })
+                }
+              >
+                <span>{item.name}</span>
+              </li>
+            ))}
         </ul>
       </div>
 
       <div className="sidebar_item sidebar_form">
-        <input
-          type="text"
-          placeholder="Search products...."
-          onChange={(e) =>
-            changeParams({
-              name_like: e.target.value
-            })
-          }
-        />
+        <input type="text" placeholder="Search products...." onChange={(e) => handleChange(e)} />
         <i className="bx bx-search-alt-2" />
         {/* <i className="bx bx-loader bx-spin" /> */}
       </div>

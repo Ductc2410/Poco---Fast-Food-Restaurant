@@ -5,7 +5,9 @@ const Orderitem = ({ order, showOrder }: { order: IOrder; showOrder: any }) => {
   return (
     <div className="order_item">
       <div className="order_item-header">
-        <p>September 25, 2020</p>
+        <p>
+          <span className="order_item-date">{order.date}</span> - {order.status}
+        </p>
         <p className="total">Total: ${order.amount}</p>
       </div>
       <div className="order_item-content">

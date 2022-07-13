@@ -36,11 +36,10 @@
   }
 
   &_error {
-    margin-left: 20px;
     margin-top: 10px;
     text-transform: capitalize;
     font-size: 14px;
-    color: black;
+    color: red;
 
     &-login {
       font-size: 14px;

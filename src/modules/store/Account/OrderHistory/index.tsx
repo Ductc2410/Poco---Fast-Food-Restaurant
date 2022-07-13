@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../redux/store";
-import { getOrderByUserId } from "../../../../api/order";
 
 import Orderitem from "./OrderItem/Orderitem";
 import OrderModal from "./OrderModal/OrderModal";
 import Modal from "../../../../components/Modal/Modal";
-import "./style.scss";
+import { getOrderByUserId } from "../../../../api/order";
 import IOrder from "../../../../types/Order";
+import "./style.scss";
 
 const OrderHistory = () => {
   const { user } = useSelector((state: RootState) => state.auth);
-  const [openModal, setOpenModal] = useState<boolean>(false);
   const [orders, setOrders] = useState<IOrder[]>([]);
   const [orderSelected, setOrderSelected] = useState<IOrder>();
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   useEffect(() => {
     const getOrder = async () => {
@@ -44,10 +44,12 @@ const OrderHistory = () => {
         </div>
       )}
 
-      {orders.length > 0 &&
-        orders.map((order, index) => (
-          <Orderitem key={index} order={order} showOrder={showOrderDetail} />
-        ))}
+      <div className="order_list">
+        {orders.length > 0 &&
+          orders.map((order, index) => (
+            <Orderitem key={index} order={order} showOrder={showOrderDetail} />
+          ))}
+      </div>
 
       {openModal && (
         <Modal closeModal={closeModal}>

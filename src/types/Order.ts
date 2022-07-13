@@ -6,7 +6,10 @@ interface OrderItem {
   quantity: number;
 }
 
+export type Status = "Order Placed" | "Processing" | "Shipping" | "Completed" | "Cancelled";
+
 export default interface IOrder {
+  id?: number;
   code: string;
   name?: string;
   phone?: string;
@@ -15,6 +18,7 @@ export default interface IOrder {
   orderDetail: OrderItem[];
   amount: number;
   note?: string;
-  status: "Order Placed" | "Processing" | "Shipping" | "Completed" | "Cancelled";
+  status: Status;
+  date: string;
   userId?: number;
 }

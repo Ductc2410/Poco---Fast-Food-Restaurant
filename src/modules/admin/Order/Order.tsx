@@ -15,8 +15,6 @@ const Order = () => {
     });
   };
 
-  console.log("render");
-
   return (
     <>
       <OrderFilter changeFilter={changeFilter} />

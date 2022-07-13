@@ -3,8 +3,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeOrder, getOrderList } from "../../../redux/slice/order.slide";
 import { RootState, AppDispatch } from "../../../redux/store";
+
 import IOrder from "../../../types/Order";
 import OrderStatus from "../../../constants/OrderStatus";
+import "./order.style.scss";
 
 interface IOrderList {
   filter: { status?: string; code?: string };
@@ -20,7 +22,7 @@ const OrderList = ({ filter }: IOrderList) => {
     const isConfirm = window.confirm("Wanna change status of this order ???");
 
     if (isConfirm) {
-      dispatch(changeOrder({ id, status }));
+      dispatch(changeOrder({ id, status, filter: filter.status }));
     }
   };
 
@@ -29,6 +31,11 @@ const OrderList = ({ filter }: IOrderList) => {
       title: "Order Code",
       dataIndex: "code",
       key: "code"
+    },
+    {
+      title: "Date/Time",
+      dataIndex: "date",
+      key: "date"
     },
     {
       title: "Customer",
@@ -41,6 +48,7 @@ const OrderList = ({ filter }: IOrderList) => {
       key: "status",
       render: (_: any, record: any) => (
         <Select
+          className={record.status}
           defaultValue={record.status}
           onChange={(value) => handleChange({ id: record.id, status: value })}
         >

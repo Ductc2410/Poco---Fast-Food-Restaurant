@@ -1,11 +1,12 @@
-import { useDeferredValue, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { signin } from "../../../redux/slice/auth.slide";
 import { AppDispatch, RootState } from "../../../redux/store";
+
 import "./login.style.scss";
 
 const schema = yup
@@ -61,7 +62,7 @@ const LoginForm = () => {
         </button>
 
         <div className="login_navigate">
-          <a href="register">Forgot your passwpord ???</a>
+          <Link to="/register">Create Account ???</Link>
           <a href="home">Return to Store</a>
         </div>
       </form>

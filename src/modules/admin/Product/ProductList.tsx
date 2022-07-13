@@ -1,16 +1,37 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Table, notification, Button } from "antd";
+import { Table, notification, Button, Modal } from "antd";
 import Checkbox from "antd/lib/checkbox/Checkbox";
 import { Link } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../redux/store";
 
-import { getProducts } from "../../../redux/slice/product.slide";
+import { deleteProduct, getProducts } from "../../../redux/slice/product.slide";
 import IProduct from "../../../types/Product";
+import FilterProduct from "./FilterProduct";
 
 const ProductList = () => {
   const dispatch: AppDispatch = useDispatch();
   const { products, loading, error } = useSelector((state: RootState) => state.products);
+
+  const [filters, setFilters] = useState({
+    categoryId: undefined,
+    orderBy: undefined,
+    name_like: undefined
+  });
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [productSelect, setProductSelect] = useState<number>(0);
+
+  const handleClick = (id: number) => {
+    setIsOpen(true);
+    setProductSelect(id);
+  };
+
+  const changeFilter = (data: any) => {
+    setFilters({
+      ...filters,
+      ...data
+    });
+  };
 
   const columns = [
     {
@@ -49,7 +70,7 @@ const ProductList = () => {
       title: "Action",
       key: "action",
       render: (_: any, record: IProduct) => (
-        <Button type="primary" danger>
+        <Button type="primary" danger onClick={() => handleClick(record.id)}>
           Delete
         </Button>
       )
@@ -57,8 +78,8 @@ const ProductList = () => {
   ];
 
   useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+    dispatch(getProducts(filters));
+  }, [dispatch, filters]);
 
   useEffect(() => {
     if (error) {
@@ -69,22 +90,32 @@ const ProductList = () => {
     }
   }, [error]);
 
+  const handleOk = () => {
+    dispatch(deleteProduct(productSelect));
+    setIsOpen(false);
+  };
+
   return (
     <>
-      {loading && (
-        <div className="box">
-          <h3>Loading....</h3>
-        </div>
-      )}
+      <FilterProduct changeFilter={changeFilter} />
 
-      {!loading && products.length >= 0 && (
-        <Table
-          bordered
-          columns={columns}
-          dataSource={products}
-          rowKey={(data: IProduct) => data.id}
-        />
-      )}
+      <Table
+        bordered
+        columns={columns}
+        dataSource={products}
+        rowKey={(data: IProduct) => data.id}
+        pagination={false}
+        loading={loading}
+      />
+
+      <Modal
+        title="Confirm"
+        visible={isOpen}
+        onOk={() => handleOk()}
+        onCancel={() => setIsOpen(false)}
+      >
+        <p>Xoa san pham</p>
+      </Modal>
     </>
   );
 };

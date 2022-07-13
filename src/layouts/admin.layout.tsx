@@ -1,8 +1,12 @@
+import { useDispatch } from "react-redux";
 import { Outlet, Link } from "react-router-dom";
-import { Layout, Menu } from "antd";
-import "./admin.style.scss";
+import { Layout, Menu, Button } from "antd";
 
-const { Content, Sider } = Layout;
+import { AppDispatch } from "../redux/store";
+import "./admin.style.scss";
+import { logout } from "../redux/slice/auth.slide";
+
+const { Content, Sider, Header } = Layout;
 
 const items = [
   {
@@ -22,21 +26,27 @@ const items = [
     key: "order"
   },
   {
-    label: <Link to="/shop">Shop</Link>,
+    label: <Link to="/shop">Back to Shop</Link>,
     key: "Shop"
   }
 ];
 
 export default function AdminLayout() {
+  const dispatch: AppDispatch = useDispatch();
+
   return (
     <Layout>
       <Sider breakpoint="lg" collapsedWidth="0">
-        <div className="logo" />
         <Menu theme="dark" mode="inline" items={items} />
       </Sider>
       <Layout>
-        <Content style={{ margin: "24px 16px 0" }}>
-          <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+        <Header className="site-layout-background header-admin">
+          <Button type="primary" onClick={() => dispatch(logout())}>
+            Log out
+          </Button>
+        </Header>
+        <Content style={{ margin: "24px 16px" }}>
+          <div className="site-layout-background" style={{ padding: 24, height: "100%" }}>
             <Outlet />
           </div>
         </Content>

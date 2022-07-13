@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { changeOrderStatus, getOrders } from "../../api/order";
-import IOrder from "../../types/Order";
+import IOrder, { Status } from "../../types/Order";
 
 export const getOrderList = createAsyncThunk("ordre/getOrderList", async (params: any) => {
   const { data } = await getOrders(params);
@@ -9,8 +9,9 @@ export const getOrderList = createAsyncThunk("ordre/getOrderList", async (params
 
 export const changeOrder = createAsyncThunk(
   "ordre/changeOrder",
-  async ({ id, status }: { id: number; status: string }) => {
+  async ({ id, status, filter }: { id: number; status: string; filter?: string }) => {
     await changeOrderStatus({ id, status });
+    return { id, status, filter };
   }
 );
 
@@ -49,6 +50,16 @@ const ordersSlice = createSlice({
         state.loading = true;
       })
       .addCase(changeOrder.fulfilled, (state, action) => {
+        const { id, status, filter } = action.payload;
+
+        if (filter) {
+          const newOrders = state.orders.filter((item) => item.id !== id);
+          state.orders = newOrders;
+        } else {
+          const index = state.orders.findIndex((item) => item.id === id);
+          state.orders[index].status = status as Status;
+        }
+
         state.loading = false;
       });
   }

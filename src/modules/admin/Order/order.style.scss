@@ -1,0 +1,29 @@
+.ant-select {
+  &.Completed {
+    .ant-select-selector {
+      background-color: #108ee9;
+      color: white;
+    }
+    span {
+      color: white;
+    }
+  }
+  &.Cancelled {
+    .ant-select-selector {
+      background-color: #f50;
+      color: white;
+    }
+    span {
+      color: white;
+    }
+  }
+  &.Processing {
+    .ant-select-selector {
+      background-color: #87d068;
+      color: white;
+    }
+    span {
+      color: white;
+    }
+  }
+}

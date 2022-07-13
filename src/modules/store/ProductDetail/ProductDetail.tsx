@@ -74,7 +74,7 @@ const ProductDetail = () => {
                     onChange={(e) => setQuantity(Number(e.target.value))}
                   />
                   <button type="button" className="btn btn-primary" onClick={handleClick}>
-                    add to card
+                    add to cart
                   </button>
                 </div>
                 <div className="category">

@@ -2,7 +2,7 @@ import { Rate } from "antd";
 import { useGetCommentsQuery } from "../../../../api/comment.api";
 
 const CommentList = ({ id }: any) => {
-  const { data } = useGetCommentsQuery(Number(id));
+  const { data } = useGetCommentsQuery({ id: Number(id), rating: 1 });
 
   return (
     <div className="comment-list">
@@ -26,7 +26,7 @@ const CommentList = ({ id }: any) => {
                   </p>
                   <span className="date">
                     <i className="bx bxs-time-five" />
-                    Jun 24, 2022
+                    {comment.date}
                   </span>
                 </div>
                 <Rate value={comment.rating} disabled />

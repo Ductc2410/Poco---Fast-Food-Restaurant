@@ -1,9 +1,27 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+
+import { AppDispatch } from "../../redux/store";
+import { increaseCartItem } from "../../redux/slice/cart.slide";
 import IProduct from "../../types/Product";
 
 import "./product.style.scss";
 
 const ProductItem = ({ product }: { product: IProduct }) => {
+  const dispatch: AppDispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(
+      increaseCartItem({
+        id: product.id,
+        name: product.name,
+        image: product.image,
+        price: product.price,
+        quantity: 1
+      })
+    );
+  };
+
   return (
     <div className="product_cart" key={product.id}>
       <div className="product_image">
@@ -27,7 +45,7 @@ const ProductItem = ({ product }: { product: IProduct }) => {
               <span className="product_price">${product.price}</span>
             )}
           </div>
-          <div className="product_icon">
+          <div className="product_icon" onClick={handleClick}>
             <i className="bx bxs-cart-add" />
           </div>
         </h4>
