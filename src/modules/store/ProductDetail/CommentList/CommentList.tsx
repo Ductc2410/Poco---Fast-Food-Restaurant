@@ -6,7 +6,7 @@ const CommentList = ({ id }: any) => {
 
   return (
     <div className="comment-list">
-      {data && data.length === 0 && <div className="comment-null">There are no reviews yet.</div>}
+      {data && data.length === 0 && <div className="notfound">There are no reviews yet.</div>}
 
       {data &&
         data.length > 0 &&

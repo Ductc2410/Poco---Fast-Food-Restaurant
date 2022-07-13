@@ -4,6 +4,7 @@ import { Slider, Tag } from "antd";
 import { IParamsFilter } from "../../../types/Pagination";
 import ICategory from "../../../types/Category";
 import { getCategory } from "../../../api/category";
+import useDebounce from "../../../hooks/useDebounce";
 
 interface ShopSidebarProps {
   changeParams: Function;
@@ -11,16 +12,22 @@ interface ShopSidebarProps {
 }
 const ShopSidebar = ({ changeParams, params }: ShopSidebarProps) => {
   const [category, setCategory] = useState<ICategory[]>();
+  const [key, setKey] = useState<any>();
+  const debouncedValue = useDebounce(key, 500);
 
   useEffect(() => {
     getCategory().then(({ data }) => setCategory(data));
   }, []);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    changeParams({
+    setKey({
       name_like: e.target.value
     });
   };
+
+  useEffect(() => {
+    changeParams(debouncedValue);
+  }, [debouncedValue]);
 
   return (
     <div className="shop_sidebar">
@@ -56,6 +63,12 @@ const ShopSidebar = ({ changeParams, params }: ShopSidebarProps) => {
         </div>
       </div>
 
+      <div className="sidebar_item sidebar_form">
+        <input type="text" placeholder="Search products...." onChange={handleChange} />
+        <i className="bx bx-search-alt-2" />
+        {/* <i className="bx bx-loader bx-spin" /> */}
+      </div>
+
       <div className="sidebar_item sidebar_category">
         <h3 className="sidebar_title sidebar_title-cate">Categories</h3>
         <ul className="category_list">
@@ -74,12 +87,6 @@ const ShopSidebar = ({ changeParams, params }: ShopSidebarProps) => {
               </li>
             ))}
         </ul>
-      </div>
-
-      <div className="sidebar_item sidebar_form">
-        <input type="text" placeholder="Search products...." onChange={(e) => handleChange(e)} />
-        <i className="bx bx-search-alt-2" />
-        {/* <i className="bx bx-loader bx-spin" /> */}
       </div>
 
       <div className="sidebar_item sidebar_price">

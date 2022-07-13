@@ -20,7 +20,7 @@ const Shop = () => {
     price_lte: undefined
   });
 
-  const { isLoading, isSuccess, data } = useGetProductsQuery({
+  const { isLoading, isFetching, data } = useGetProductsQuery({
     ...pagination,
     ...params
   });
@@ -35,7 +35,7 @@ const Shop = () => {
   return (
     <section className="shop section">
       <div className="shop_container container">
-        <ShopList isLoading={isLoading} isSuccess={isSuccess} data={data} />
+        <ShopList isLoading={isLoading} isFetching={isFetching} data={data} />
         <ShopSidebar changeParams={changeParams} params={params} />
 
         {data && (
