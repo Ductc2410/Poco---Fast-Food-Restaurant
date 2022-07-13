@@ -41,6 +41,8 @@ const ProductTab = ({ mode }: FormMode) => {
     resolver: yupResolver(productSchema)
   });
 
+  console.log(errors);
+
   useEffect(() => {
     if (params.id) {
       getProduct(Number(params.id)).then(({ data }) => {
@@ -165,6 +167,9 @@ const ProductTab = ({ mode }: FormMode) => {
                   onChange={(e) => handleChangeValue("price", e.target.value)}
                   value={initFormData?.price}
                 />
+                {errors.price && (
+                  <div className="ant-form-item-explain-error">{errors.price.message}</div>
+                )}
               </Form.Item>
               <Form.Item label="Sale Price">
                 <Input
@@ -188,6 +193,11 @@ const ProductTab = ({ mode }: FormMode) => {
                   onChange={(e) => handleChangeValue("description_short", e.target.value)}
                   value={initFormData?.description_short}
                 />
+                {errors.description_short && (
+                  <div className="ant-form-item-explain-error">
+                    {errors.description_short.message}
+                  </div>
+                )}
               </Form.Item>
               <Form.Item label="Main Description">
                 <ReactQuill
@@ -196,6 +206,9 @@ const ProductTab = ({ mode }: FormMode) => {
                   onChange={(value) => handleChange(value)}
                   defaultValue={initFormData?.description}
                 />
+                {errors.description && (
+                  <div className="ant-form-item-explain-error">{errors.description.message}</div>
+                )}
               </Form.Item>
             </Panel>
             <Panel header="Inventory" key="3">
@@ -204,12 +217,18 @@ const ProductTab = ({ mode }: FormMode) => {
                   onChange={(e) => handleChangeValue("sku", e.target.value)}
                   value={initFormData?.sku}
                 />
+                {errors.sku && (
+                  <div className="ant-form-item-explain-error">{errors.sku.message}</div>
+                )}
               </Form.Item>
               <Form.Item label="Quantity">
                 <Input
                   onChange={(e) => handleChangeValue("quantity", e.target.value)}
                   value={initFormData?.quantity}
                 />
+                {errors.quantity && (
+                  <div className="ant-form-item-explain-error">{errors.quantity.message}</div>
+                )}
               </Form.Item>
             </Panel>
           </Collapse>
@@ -224,6 +243,8 @@ const ProductTab = ({ mode }: FormMode) => {
               <Option value="visiable">Visiable</Option>
               <Option value="hidden">Hidden</Option>
             </Select>
+
+            {errors.status && <div className="ant-form-item-explain-error">Required !!!</div>}
           </Card>
 
           <Card size="small" type="inner" title="Category" style={{ marginTop: "40px" }}>
@@ -257,7 +278,7 @@ const ProductTab = ({ mode }: FormMode) => {
           </Card>
 
           <Button htmlType="submit" type="primary" loading={loading} style={{ marginTop: "40px" }}>
-            Create
+            {mode === "create" ? "Create" : "Update"}
           </Button>
         </Col>
       </Row>

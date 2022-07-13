@@ -16,8 +16,13 @@ import CommentList from "./CommentList/CommentList";
 const ProductDetail = () => {
   const dispatch: AppDispatch = useDispatch();
   const params = useParams();
-  const { data, isLoading } = useGetProductByNameQuery(params.name);
+
   const [quantity, setQuantity] = useState<number>(1);
+  const [showTab, setShowTab] = useState({
+    description: false,
+    comment: true
+  });
+  const { data, isLoading } = useGetProductByNameQuery(params.name);
 
   const handleClick = () => {
     dispatch(
@@ -104,31 +109,48 @@ const ProductDetail = () => {
             </div>
             <div className="prDetail_tab container">
               <div className="prDetail_tab-header">
-                <button type="button" className="btn btn-primary no-active">
+                <button
+                  type="button"
+                  className="btn btn-primary no-active"
+                  onClick={() =>
+                    setShowTab({
+                      description: true,
+                      comment: false
+                    })
+                  }
+                >
                   Description
                 </button>
-                <button type="button" className="btn btn-primary">
-                  Reviews(0)
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() =>
+                    setShowTab({
+                      description: false,
+                      comment: true
+                    })
+                  }
+                >
+                  Reviews
                 </button>
               </div>
 
-              <div className="prDetail_tab-infor" style={{ display: "none" }}>
-                {parse(data[0].description)}
-              </div>
+              {showTab.description && (
+                <div className="prDetail_tab-infor">{parse(data[0].description)}</div>
+              )}
 
-              <div className="prDetail_tab-comment">
-                <CommentList id={Number(data[0].id)} />
-                <CommentForm id={Number(data[0].id)} />
-              </div>
+              {showTab.comment && (
+                <div className="prDetail_tab-comment">
+                  <CommentList id={Number(data[0].id)} />
+                  <CommentForm id={Number(data[0].id)} />
+                </div>
+              )}
             </div>
 
             <div className="product_related">
               <h3 className="section_title">RELATED PRODUCTS</h3>
               <div className="related_container container grid">
-                {/* <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem /> */}
+                <ProductItem product={data[0]} />
               </div>
             </div>
           </>

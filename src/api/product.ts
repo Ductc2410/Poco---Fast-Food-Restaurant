@@ -10,6 +10,8 @@ export const getProductList = (filters: any) => {
 
   if (filters.orderBy) {
     url += `_sort=price&_order=${filters.orderBy}&`;
+  } else {
+    url += `_sort=id&_order=desc&`;
   }
 
   if (filters.name_like) {

@@ -2,7 +2,7 @@ import instance from "./instance";
 import IOrder from "../types/Order";
 
 export const getOrders = (params: any) => {
-  let url = "/orders?";
+  let url = "/orders?_sort=id&_order=desc&";
 
   for (const key in params) {
     if (Object.prototype.hasOwnProperty.call(params, key) && params[key]) {

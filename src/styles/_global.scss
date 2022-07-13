@@ -45,6 +45,24 @@ body {
   letter-spacing: 1px;
 }
 
+.notfound {
+  position: relative;
+  padding: 15px 30px;
+  background-color: #3d9cd2;
+  color: white;
+
+  &:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 8px;
+    background-color: #1b76aa;
+    z-index: 1;
+  }
+}
+
 .btn {
   font-size: 14px;
   font-weight: 700;

@@ -8,18 +8,30 @@ interface IDataProp {
 
 const ShopList = ({
   isLoading,
-  isSuccess,
+  isFetching,
   data
 }: {
   isLoading: boolean;
-  isSuccess: boolean;
+  isFetching: boolean;
   data: IDataProp;
 }) => {
   return (
     <div className="shop_products grid">
       {isLoading && "Loading"}
 
-      {data && data.products.map((product, index) => <ProductItem key={index} product={product} />)}
+      {!isLoading && isFetching && (
+        <div className="overlay">
+          <i className="bx bx-loader bx-spin" />
+        </div>
+      )}
+
+      {data &&
+        !isFetching &&
+        data.products.map((product, index) => <ProductItem key={index} product={product} />)}
+
+      {data && !isFetching && data.products.length === 0 && (
+        <div className="notfound product_notfound">There are no reviews yet.</div>
+      )}
     </div>
   );
 };
