@@ -41,8 +41,6 @@ const ProductTab = ({ mode }: FormMode) => {
     resolver: yupResolver(productSchema)
   });
 
-  console.log(errors);
-
   useEffect(() => {
     if (params.id) {
       getProduct(Number(params.id)).then(({ data }) => {

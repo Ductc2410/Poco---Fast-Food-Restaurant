@@ -19,7 +19,7 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (isLogging && Number(user.email) === 1) {
+    if (isLogging && Number(user.id) === 1) {
       navigate("/admin/product");
     }
   }, [isLogging, user, navigate]);

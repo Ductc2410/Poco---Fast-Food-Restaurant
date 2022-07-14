@@ -153,19 +153,6 @@
       "name": "Iced",
       "sku": "PRD004",
       "id": 12
-    },
-    {
-      "status": "visiable",
-      "categoryId": 6,
-      "quantity": 50,
-      "description_short": "short",
-      "description": "<p>description</p><p>description</p>",
-      "overview": "Overview",
-      "price": 150,
-      "image": "https://res.cloudinary.com/dzoav55s4/image/upload/v1657702362/Shop/ciegtni0andx7qqlt72y.png",
-      "name": "Pizza",
-      "sku": "PRD013",
-      "id": 13
     }
   ],
   "categories": [
@@ -184,16 +171,6 @@
     {
       "id": 4,
       "name": "Pasta"
-    },
-    {
-      "name": "Pizza",
-      "description": "",
-      "id": 5
-    },
-    {
-      "name": "Pizza",
-      "description": "note",
-      "id": 6
     }
   ],
   "comments": [
@@ -209,6 +186,16 @@
       "userId": 1,
       "productId": 1,
       "date": "13/7/2022, 15:54:05"
+    },
+    {
+      "email": "user3@gmail.com",
+      "name": "Taylor Morisset",
+      "id": 4,
+      "review": "dwqdqw",
+      "rating": 4,
+      "userId": 4,
+      "productId": 2,
+      "date": "14/7/2022, 08:55:24"
     }
   ],
   "orders": [
@@ -342,6 +329,42 @@
       "date": "13/7/2022, 15:49:32",
       "userId": 4,
       "id": 6
+    },
+    {
+      "code": "35956FCABC",
+      "name": "Taylor Morisset",
+      "phone": "0866553202",
+      "address": "Hanoi",
+      "email": "user3@gmail.com",
+      "orderDetail": [
+        {
+          "productId": 1,
+          "name": "BBQ chicken",
+          "image": "https://res.cloudinary.com/dzoav55s4/image/upload/v1655803830/Shop/lj4w7egbqgh2bqtqlmhk.png",
+          "price": 12.61,
+          "quantity": 4
+        },
+        {
+          "productId": 3,
+          "name": "Chocolate cake",
+          "image": "https://res.cloudinary.com/dzoav55s4/image/upload/v1657690225/Shop/13-1_xcoqko.png",
+          "price": 9.43,
+          "quantity": 1
+        },
+        {
+          "productId": 2,
+          "name": "Bacon Burger",
+          "image": "https://res.cloudinary.com/dzoav55s4/image/upload/v1657690225/Shop/15-1_ouaj4h.png",
+          "price": 10.24,
+          "quantity": 1
+        }
+      ],
+      "amount": 70.11,
+      "note": "",
+      "status": "Order Placed",
+      "date": "14/7/2022, 08:56:45",
+      "userId": 4,
+      "id": 7
     }
   ],
   "users": [

@@ -73,7 +73,7 @@ const CheckoutForm = () => {
         setLoading(false);
         notification.success({
           message: "Thong Bao",
-          description: "Dat hang thanh cong, Tu dong chuyen ve trang chu sau 2s",
+          description: "Order success, Navigate to shop page in 2s",
           duration: 1.5,
           placement: "top",
           onClose: () => {
